@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mvvm_arc/res/components/colors.dart';
 import 'package:mvvm_arc/res/components/round_button.dart';
-import 'package:mvvm_arc/utils/routes/routes.dart';
 import 'package:mvvm_arc/utils/routes/routes_name.dart';
 import 'package:mvvm_arc/utils/utils.dart';
 
@@ -107,10 +106,10 @@ class _LoginViewState extends State<LoginView> {
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
                           // Perform login action
-                          Utils.toastMessage('Login button clicked', AppColors.greenColor);
+                        Utils.flushbarErrorMessage("Login Succfully", context, AppColors.greenColor, "Success");
                           Navigator.pushNamed(context, RoutesName.home);
                         } else {
-                          Utils.toastMessage('Please enter valid email and password', AppColors.redColor);
+                          Utils.flushbarErrorMessage("Login Failed", context, AppColors.redColor, "Error");
                         }
                       },
                       textStyle: GoogleFonts.poppins(
