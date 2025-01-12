@@ -1,10 +1,25 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_route.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+
+// We are using utils to maanage out Utility functions
 class Utils {
 
-   toastMessage(String mmessage, Color color) {
+
+// This function is used to change the focus of the TextFormField
+  static void filedFocusChange(
+    BuildContext context,
+     FocusNode currentFocus,
+      FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
+
+
+// This function is used to show toast message
+  static void toastMessage(String mmessage, Color color) {
     Fluttertoast.showToast(
       msg: mmessage,
       toastLength: Toast.LENGTH_SHORT,
@@ -12,33 +27,34 @@ class Utils {
       timeInSecForIosWeb: 1,
       backgroundColor: color,
       textColor: Colors.white,
-      fontSize: 16.0
+      fontSize: 16.sp
     );
   }
 
+// This function is used to show flushbar message
   static void flushbarErrorMessage(String messgae, BuildContext context ,Color color , String title) {
     showFlushbar(context: context,
      flushbar: Flushbar(
         flushbarPosition: FlushbarPosition.BOTTOM,
         flushbarStyle: FlushbarStyle.FLOATING,
         isDismissible: true,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadows: [
           BoxShadow(
             color: Colors.black45,
-            offset: Offset(3, 3),
-            blurRadius: 3,
+            offset: Offset(3.sp, 3.sp),
+            blurRadius: 3.r,
           ),
         ],
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       forwardAnimationCurve: Curves.easeOutQuart,
         title: title,
       message: messgae,
-      icon: Icon(Icons.info_outline, size: 28, color: Colors.white),
+      icon: Icon(Icons.info_outline, size: 28.sp, color: Colors.white),
       backgroundColor: color,
       duration: Duration(seconds: 3),
      )..show(context),
      );
-  }
 
-}
+  }
+  }
