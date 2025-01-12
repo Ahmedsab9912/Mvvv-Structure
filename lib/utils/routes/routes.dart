@@ -6,10 +6,10 @@ import 'package:mvvm_arc/view/login_screen.dart';
 // We are creating a class called Routes
 class Routes {
   // We are creating a static method called generateRoute
-  static MaterialPageRoute generateRoute(RouteSettings settings) {
+  static Route<dynamic>  generateRoute(RouteSettings myPath) {
 
 // We are using a switch statement to check the route name
-    switch (settings.name) {
+    switch (myPath.name) {
       // If the route name is home, we will return the HomeScreen
       case RoutesName.home:
         return MaterialPageRoute(builder: (_) => HomeScreen());

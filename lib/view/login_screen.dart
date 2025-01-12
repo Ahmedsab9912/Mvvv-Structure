@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_arc/utils/routes/routes_name.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,7 +12,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  
+      body: InkWell(
+        onTap: () => Navigator.pushNamed(context, RoutesName.home),
+        child: Center(child: Text('Click Me'))),
     );
   }
 }
