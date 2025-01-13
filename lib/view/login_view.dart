@@ -106,8 +106,8 @@ class _LoginViewState extends State<LoginView> {
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
                           // Perform login action
+                           Navigator.pushNamed(context, RoutesName.home);
                         Utils.flushbarErrorMessage("Login Succfully", context, AppColors.greenColor, "Success");
-                          Navigator.pushNamed(context, RoutesName.home);
                         } else {
                           Utils.flushbarErrorMessage("Login Failed", context, AppColors.redColor, "Error");
                         }
