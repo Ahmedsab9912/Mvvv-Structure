@@ -32,7 +32,7 @@ class Utils {
   }
 
 // This function is used to show flushbar message
-  static void flushbarErrorMessage(String messgae, BuildContext context ,Color color , String title) {
+  static void flushbarErrorMessage(String messgae, BuildContext context ) {
     showFlushbar(context: context,
      flushbar: Flushbar(
         flushbarPosition: FlushbarPosition.BOTTOM,
@@ -48,10 +48,10 @@ class Utils {
         ],
         margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       forwardAnimationCurve: Curves.easeOutQuart,
-        title: title,
+        title: "Info",
       message: messgae,
       icon: Icon(Icons.info_outline, size: 28.sp, color: Colors.white),
-      backgroundColor: color,
+      backgroundColor: Colors.green,
       duration: Duration(seconds: 3),
      )..show(context),
      );

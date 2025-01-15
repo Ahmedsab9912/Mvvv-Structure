@@ -1,40 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mvvm_arc/res/components/colors.dart';
 
+
+
+//custom round button component, we will used this widget show to show button
+// this widget is generic, we can change it and this change will appear across the app
 class RoundButton extends StatelessWidget {
-  final String text;
-  final Color color;
-  final bool loading;
-  final VoidCallback onTap;
-  final TextStyle textStyle;
 
-  const RoundButton({
-    super.key,
-    this.loading = false,
-    required this.text,
-    required this.color,
-    required this.onTap,
-    required this.textStyle,
-  });
+  final String title ;
+  final bool loading ;
+  final VoidCallback onPress ;
+  const RoundButton({Key? key ,
+    required this.title,
+    this.loading = false ,
+     required this.onPress ,
+
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: onPress,
       child: Container(
+        height: 40,
+        width: 200,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-          color: color,
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(10)
         ),
-        child: Padding(
-          padding: EdgeInsets.all(10.h),
-          child: Center(
-            child: Text(
-              text,
-              style: textStyle,
-            ),
-          ),
-        ),
+        child: Center(
+            child:loading ? const CircularProgressIndicator(color: Colors.white,) :
+            Text(title ,
+              style: const TextStyle(color: AppColors.whiteColor),
+            )),
       ),
     );
   }

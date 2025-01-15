@@ -8,14 +8,14 @@ import 'package:mvvm_arc/utils/utils.dart';
 import 'package:mvvm_arc/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -40,6 +40,9 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final authviewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign Up'),
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(8.0.r),
@@ -90,8 +93,8 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   SizedBox(height: 15.h),
                   RoundButton(
-                    title: "Login",
-                    loading: authviewModel.loading,
+                    title: "Sign Up",
+                    loading: authviewModel.signUpLoading,
                     onPress: () {
                       if(emailController.text.isEmpty){
                         Utils.flushbarErrorMessage('Please enter email', context);
@@ -108,18 +111,18 @@ class _LoginViewState extends State<LoginView> {
                         'password': passwordController.text.toString(),
                       };
                       // This is the place where we are calling the loginApi function 
-                      authviewModel.loginApi(loginKeys, context);
+                      authviewModel.signupApi(loginKeys, context);
                       print(loginKeys);
                       // Perform login action
                       // Navigator.pushNamed(context, RoutesName.home);
                     },
                   ),
-                   SizedBox(height: 15.h),
+                  SizedBox(height: 15.h),
                   InkWell(
                     onTap: (){
-                      Navigator.pushNamed(context, RoutesName.signup);
+                      Navigator.pushNamed(context, RoutesName.login);
                     },
-                    child: Text('Dont have an account? Sign Up'),
+                    child: Text('Have Account? Log In'),
                   )
                 ],
               ),

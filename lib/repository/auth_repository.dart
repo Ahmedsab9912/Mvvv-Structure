@@ -22,7 +22,7 @@ class AuthRepository {
   }
 
 // this method is used to make a post api call
-    Future<dynamic> registerApi(dynamic data) async {
+    Future<dynamic> signUpApi(dynamic data) async {
     try {
       dynamic response =
           await _apiServices.getPostApiResponse(AppUrl.registerEndPoint, data);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_arc/utils/routes/routes_name.dart';
 import 'package:mvvm_arc/view/home_screen.dart';
 import 'package:mvvm_arc/view/login_view.dart';
+import 'package:mvvm_arc/view/signup_view.dart';
 
 // We are creating a class called Routes
 class Routes {
@@ -16,6 +17,9 @@ class Routes {
 // If the route name is login, we will return the LoginScreen
       case RoutesName.login:
         return MaterialPageRoute(builder: (_) => LoginView());
+        // If the route name is login, we will return the LoginScreen
+      case RoutesName.signup:
+        return MaterialPageRoute(builder: (_) => SignUpView());
 // If the route name is not defined, we will return a Scaffold with a Text widget        
       default:
         return MaterialPageRoute(builder: (_){

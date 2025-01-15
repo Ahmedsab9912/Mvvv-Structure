@@ -7,4 +7,6 @@ class RoutesName {
 
   // Login Screen Route
   static const String login = 'login_screen';
+   // Login Screen Route
+  static const String signup = 'signup_screen';
 }
